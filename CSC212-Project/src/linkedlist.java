@@ -126,37 +126,35 @@ public class linkedlist<T> implements List<T>{
 		default:
 			System.out.println("Re-enter a correct number from 1-5");
 					}
+		return null;
 				
 				
 			}
 		
-		public void delete() {
+		public Contact delete() {
+		 Contact d= ((Contect)current);
 		if (current == head) {//Current is the first one 
-		head = head.next; 
+			head = head.next; 
 		current=head;
+		return d;
 		} 
-		else {//cuurent is the last one
-			if (current.next==null) {
-				Node<T> temp =head;
-			while(temp.next!=current) {
-				temp=temp.getNext();}
-			temp.next=null;}
+		else { 
+			if(current.next==null) {
+				Node<T> temp =current;
+				temp.next=null;
+				current=head;}
+				return d;}
+				
+			
 			else {// current in the middle
 				Node<T> before =head;
 				while(before.next!=current)
-				{
-					before=before.getNext();
-						
-				}
-				before.next=current.getNext();
+				{before=before.getNext();}
 				
-			}
-				
-				findFirst();
-			
-					
-		}
-		}
+				before.next=current.getNext();}
+			return d;
+				}//end delete
+		
 		public linkedlist<T> search_email(){
 			linkedlist LL_email= new linkedlist();
 			System.out.println("Enter the E-mail: ");
@@ -170,7 +168,7 @@ public class linkedlist<T> implements List<T>{
 			else 
 				return null;
 				}
-			return LL_email;}
+			return null;}
 		
 		public linkedlist<T> search_address(){
 			linkedlist LL_address= new linkedlist();
