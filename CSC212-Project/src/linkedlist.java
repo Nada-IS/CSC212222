@@ -132,27 +132,27 @@ public class linkedlist<T> implements List<T>{
 			}
 		
 		public Contact delete() {
-		 Contact d= ((Contect)current);
+		 Node<T> d= current;
 		if (current == head) {//Current is the first one 
 			head = head.next; 
 		current=head;
 		return d;
 		} 
-		else { 
-			if(current.next==null) {
+		else {
+			
+		if(current.next==null) {
 				Node<T> temp =current;
 				temp.next=null;
-				current=head;}
+				current=head;
 				return d;}
 				
-			
 			else {// current in the middle
 				Node<T> before =head;
 				while(before.next!=current)
 				{before=before.getNext();}
 				
 				before.next=current.getNext();}
-			return d;
+			return d;}
 				}//end delete
 		
 		public linkedlist<T> search_email(){
