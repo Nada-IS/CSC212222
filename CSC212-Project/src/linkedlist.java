@@ -1,11 +1,11 @@
-import java.util.*;
+
 
 import java.util.*;
 import java.util.Scanner;
 
-import phonebookApp.Contact;
 
-public class  linkedLlist<T> implements List<T>{
+
+public class  linkedlist<T> implements List<T>{
 		
 		Scanner input = new Scanner(System.in);
 
@@ -43,7 +43,7 @@ public class  linkedLlist<T> implements List<T>{
 		public void update(T val) { 
 		current.data=val; 
 		}
-<<<<<<< HEAD
+
 public boolean exist(T E) {
 	if(empty())
 		return false;
@@ -92,60 +92,8 @@ public boolean exist(T E) {
 		}
 		} 
 		}//end add
-		public Contact search() {
-=======
->>>>>>> branch 'main' of https://github.com/Nada-IS/CSC212222.git
 		
-		public boolean exist(T E) {
-			if(empty())
-			return false;
-			findFirst();
-			Contact e =((Contact)E);
-			while (!last())// cuurent.next!=null
-			{
-			Contact a =((Contact)current.data);
-			if(a.getName().equals(e.getName()) || a.getPhoneNumber().equals(e.getPhoneNumber())) {
-			System.out.print("the contact is already exist " + a.toString() +"\n");
-			return true;
-			}
-			findNext();
-			}
-			//check the last elemnt
-			Contact a =((Contact)current.data);
-			if(a.getName().equals(e.getName()) || a.getPhoneNumber().equals(e.getPhoneNumber())) {
-			System.out.print("the contact is already exist " + a.toString() +"\n");
-			return true; }
-			return false; 
-			}
-		
-		
-		public void add(T Con) {
-			Node<T> con = new Node(Con); 
-			Contact CastCon = ((Contact)con.data);
-			if(!(exist(Con)))
-			if(head==null)
-			head = current = con;
-			else {
-			if(CastCon.compareTo(((Contact)head.data)) < 0) {
-			con.next=head;
-			head=con;
-			}
-			else {
-			Node<T> prev = null;
-			Node<T> temp = head;
-			while(temp!=null) {
-			if(CastCon.compareTo(((Contact)temp.data))< 0){
-			prev.next = con;
-			con.next = temp;
-			current = con;
-			break;
-			}
-			prev = temp;
-			temp = temp.next;
-			}//end while
-			}
-			} 
-			}//end add
+
 		
 				
 		public void delete() {

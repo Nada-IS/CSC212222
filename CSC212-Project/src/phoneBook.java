@@ -59,11 +59,12 @@ a1.add(e);
 a1.add(d);
 a1.add(w);
 a1.add(z);
-a1.
 a1.findFirst();
+
 for (int i=0 ; i<10; i++) {
 System.out.println(a1.retrieve());
 a1.findNext();
+System.out.println("dana");
 }
 } } 
 
