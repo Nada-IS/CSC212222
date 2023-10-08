@@ -40,20 +40,20 @@ public class linkedlist<T> implements List<T>{
 		return false;
 		findFirst();
 		Contact e =((Contact)E);
-		while (!last())// cuurent.next!=null
+		while (current.next!=null)//cuurent.next!=null
 		{
 		Contact a =((Contact)current.data);
 		if(a.getName().equals(e.getName()) || a.getPhoneNumber().equals(e.getPhoneNumber())) {
 		System.out.print("the contact is already exist " + a.toString() +"\n");
 		return true;
 		}
-		findNext();
+		//findNext();
 		}
-		//check the last elemnt
+		/*check the last elemnt
 		Contact a =((Contact)current.data);
 		if(a.getName().equals(e.getName()) || a.getPhoneNumber().equals(e.getPhoneNumber())) {
 		System.out.print("the contact is already exist " + a.toString() +"\n");
-		return true; }
+		return true; }*/
 		return false; 
 		}
 		public void add(T Con) {

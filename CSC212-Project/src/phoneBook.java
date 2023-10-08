@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class phoneBook {
 public static void main(String[] args) { 
-System.out.println("Please choose an option:\r\n"
+	/*System.out.println("Please choose an option:\r\n"
 + "1. Add a contact\r\n"
 + "2. Search for a contact\r\n"
 + "3. Delete a contact\r\n"
@@ -43,23 +43,28 @@ default:
 System.out.println("Re-enter a correct number from 1-8 ");
 break;
 }
-}while(y); 
-/*Contact a = new Contact("asma a","00","ss","sss","2000","as");
-Contact b = new Contact("basma","22","ss","sss","2000","as");
+}while(y);*/ 
+Contact a = new Contact("asma a","00","ss","sss","2000","as");
+Contact b = new Contact("basma","11","ss","sss","2000","as");
 Contact c = new Contact("anwar","22","ss","sss","2000","as");
-Contact e = new Contact("sara","55","ss","sss","2000","as");
-Contact d = new Contact("asma b","10","ss","sss","2000","as");
+Contact z = new Contact("areej","33","ss","sss","2000","as");
+Contact e = new Contact("sara","44","ss","sss","2000","as");
+Contact d = new Contact("nora","55","ss","sss","2000","as");
+Contact w = new Contact("nada","66","ss","sss","2000","as");
 linkedlist<Contact> a1 = new linkedlist<Contact>();
 a1.add(b);
 a1.add(a);
 a1.add(c);
 a1.add(e);
 a1.add(d);
+a1.add(w);
+a1.add(z);
+a1.
 a1.findFirst();
-for (int i=0 ; i<3; i++) {
+for (int i=0 ; i<10; i++) {
 System.out.println(a1.retrieve());
 a1.findNext();
-}*/
+}
 } } 
 
 
