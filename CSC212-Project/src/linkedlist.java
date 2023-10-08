@@ -1,9 +1,15 @@
 import java.util.*;
 
-public class linkedlist<T> implements List<T>{
-		public Node<T>head; 
-		public Node<T>current;
-		Scanner input= new Scanner(System.in);
+import java.util.*;
+import java.util.Scanner;
+
+public class  linkedLlist<T> implements List<T>{
+		
+		Scanner input = new Scanner(System.in);
+
+		public Node<T>head;  
+		public Node<T>current;  
+		
 		public linkedlist() { 
 			System.out.println('n');
 		head=current=null; 
@@ -35,6 +41,7 @@ public class linkedlist<T> implements List<T>{
 		public void update(T val) { 
 		current.data=val; 
 		}
+<<<<<<< HEAD
 		public boolean exist(T E) {
 		if(empty())
 		return false;
@@ -84,151 +91,165 @@ public class linkedlist<T> implements List<T>{
 		} 
 		}//end add
 		public Contact search() {
+=======
+>>>>>>> branch 'main' of https://github.com/Nada-IS/CSC212222.git
 		
-		System.out.println("Enter search criteria: ");
-				 
-		int x;
-		x = input.nextInt();
-		switch(x) {
-		 case 1: //by name
-		  System.out.println("Enter the name: ");
-		  String name= input.next();
-		  current=head;
-		  while(current.getNext()!= null) {
-		  if(((Contact) current.getData()).getName().equals(name))
-		   return ((Contact)current.getData());
-		  else
-		  return null;}
-		break;
-						
-		case 2: //phone
-		 System.out.println("Enter the phone number: ");
-		 String number= input.next();
-		 current=head;
-		 while(current.getNext()!= null) {
-		  if(((Contact) current.getData()).getPhoneNumber().equals(number))
-		  return ((Contact)current.getData());
-		  else
-			return null;}
-		break;
-						
-	    case 3: //email
-		 search_email();
-		    break;
-						
-		case 4: //address
-		  search_address();
-		  break;
-						
-		case 5: //birthday
-			search_birthday();
-			 break;
-		default:
-			System.out.println("Re-enter a correct number from 1-5");
-					}
-		return null;
-				
-				
+		public boolean exist(T E) {
+			if(empty())
+			return false;
+			findFirst();
+			Contact e =((Contact)E);
+			while (!last())// cuurent.next!=null
+			{
+			Contact a =((Contact)current.data);
+			if(a.getName().equals(e.getName()) || a.getPhoneNumber().equals(e.getPhoneNumber())) {
+			System.out.print("the contact is already exist " + a.toString() +"\n");
+			return true;
+			}
+			findNext();
+			}
+			//check the last elemnt
+			Contact a =((Contact)current.data);
+			if(a.getName().equals(e.getName()) || a.getPhoneNumber().equals(e.getPhoneNumber())) {
+			System.out.print("the contact is already exist " + a.toString() +"\n");
+			return true; }
+			return false; 
 			}
 		
-		public Contact delete() {
-		 Node<T> d= current;
-		if (current == head) {//Current is the first one 
-			head = head.next; 
-		current=head;
-		return d;
-		} 
-		else {
-			
-		if(current.next==null) {
-				Node<T> temp =current;
-				temp.next=null;
-				current=head;
-				return d;}
-				
-			else {// current in the middle
-				Node<T> before =head;
-				while(before.next!=current)
-				{before=before.getNext();}
-				
-				before.next=current.getNext();}
-			return d;}
-				}//end delete
 		
-		public linkedlist<T> search_email(){
-			linkedlist LL_email= new linkedlist();
-			System.out.println("Enter the E-mail: ");
-			String email= input.next();
-			current=head;
-			
-			while(current.getNext()!= null) {
-				if(((Contact) current.getData()).getEmailAddress().equals(email)) {
-					LL_email.add(current);
-					return LL_email;}
-			else 
-				return null;
-				}
-			return null;}
+		public void add(T Con) {
+			Node<T> con = new Node(Con); 
+			Contact CastCon = ((Contact)con.data);
+			if(!(exist(Con)))
+			if(head==null)
+			head = current = con;
+			else {
+			if(CastCon.compareTo(((Contact)head.data)) < 0) {
+			con.next=head;
+			head=con;
+			}
+			else {
+			Node<T> prev = null;
+			Node<T> temp = head;
+			while(temp!=null) {
+			if(CastCon.compareTo(((Contact)temp.data))< 0){
+			prev.next = con;
+			con.next = temp;
+			current = con;
+			break;
+			}
+			prev = temp;
+			temp = temp.next;
+			}//end while
+			}
+			} 
+			}//end add
 		
-		public linkedlist<T> search_address(){
-			linkedlist LL_address= new linkedlist();
-			System.out.println("Enter the Address: ");
-			String address= input.next();
-			current=head;
+				
+		public void delete() {
+			if (current == head) {  
+	            head = head.next;  
+	        }}
+		//------------------------------------------------
 			
-			while(current.getNext()!= null) {
-				if(((Contact) current.getData()).getAddress().equals(address)) {
-					LL_address.add(current);
-					return LL_address;}
+		public Contact search_name() {
+			System.out.println("Enter the name: ");
+			String name= input.next();
+			current=head;
+			while(current != null) {
+				Node<T> tmp = current;
+			if(((Contact) tmp.getData()).getName().equals(name)) {
+				current=current.next;
+				return ((Contact)tmp.getData());}
 			else
-				return null;
-		}
-			return LL_address;}
+				System.out.print("not found!");}
+			return null;
+		}	
+//---------------------------------------------------------------------
+		public Contact search_phone() {
 			
-		public linkedlist<T> search_birthday(){
-			linkedlist LL_birthday= new linkedlist();
-			System.out.println("Enter the birthday: ");
-			String birthday= input.next();
+			System.out.println("Enter the phone number: ");
+			String number= input.next();
 			current=head;
-			
 			while(current.getNext()!= null) {
-				if(((Contact) current.getData()).getBirthday().equals(birthday)) {
-					LL_birthday.add(current);
-					return LL_birthday;}
-			else return null;
+				if(((Contact)current.getData()).getPhoneNumber().equals(number))
+					return ((Contact)current.getData());
+				else
+					System.out.print("not found!");}
+			return null;
 		}
-			return LL_birthday;
+//----------------------------------------------------------------------------------
+		public linkedlist<T> search_email(){
+				linkedlist LL_email= new linkedlist();
+				System.out.println("Enter the E-mail: ");
+				String email= input.next();
+				current=head;
+				
+				while(current.getNext()!= null) {
+					if(((Contact) current.getData()).getEmailAddress().equals(email)) {
+						LL_email.add(current);
+						return LL_email;}
+				 
+					}return null;
 		}
-		
-		/*public void add(T c) {
-		Node NewC =new Node(c);
-		if (head==null) 
-		head=current=new Node(c);
-		else {
-		Node<T> temp = head;
-		while(temp.getNext()!=null) {
-		Contact a = ((Contact)temp.data);
-		Contact c1 = ((Contact)NewC.data);
-		if((a.getName().equals(c1.getName())) || (a.getPhoneNumber().equals(c1.getPhoneNumber()))) 
-		System.out.println("The Cnatact is already exist");
-		else {
-		current = head;
-		temp = current.next;
-		//if (c1.getName().compareTo(((Contact)current.data).getName()) < 0 )
-		if (c1.compareTo(a)< 0){
-		NewC.next=temp;
-		current.next=NewC;
-		current=NewC;
-		}
-		else {
-		temp = temp.next;
-		current = current.next;
-		}
-		}
-		}//end while
-		}
-		}*/
-		}
+			
+//-------------------------------------------------------------------------
+			public linkedlist<T> search_address(){
+				linkedlist LL_address= new linkedlist();
+				System.out.println("Enter the Address: ");
+				String address= input.next();
+				current=head;
+				
+				while(current.getNext()!= null) {
+					if(((Contact) current.getData()).getAddress().equals(address)) {
+						LL_address.add(current);
+						return LL_address;}
+				else return null;
+			}
+				return LL_address;}
+			
+//-----------------------------------------------------------------	
+			public linkedlist<T> search_birthday(){
+				linkedlist LL_birthday= new linkedlist();
+				System.out.println("Enter the birthday: ");
+				String birthday= input.next();
+				current=head;
+				
+				while(current!= null) {
+					Node<T> tmp = current;
+					Contact temp1 = ((Contact) tmp.data);
+					if (temp1.getBirthday().equals(birthday)) {
+						current=current.next;
+						LL_birthday.add(tmp);}
+			}
+				return LL_birthday;
+			}
+//-----------------------------------------------------------------
+			@Override
+			public Contact search() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			/*public Contact searchname(String n){
+				if(empty())
+						return null;
+			findFirst();
+			while (!last())
+			{
+			if (Contact.retrieve().getName().equals(n))
+				return Contact.retrieve();
+			Contact.findNext() ;
+			}
+			if (Contact.retrieve().getName().equals(n) )
+				return Contact.retrieve();
+			
+			return null;}*/
+			
 
+
+
+
+}
 
 
