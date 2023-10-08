@@ -3,6 +3,8 @@ import java.util.*;
 import java.util.*;
 import java.util.Scanner;
 
+import phonebookApp.Contact;
+
 public class  linkedLlist<T> implements List<T>{
 		
 		Scanner input = new Scanner(System.in);
@@ -42,27 +44,27 @@ public class  linkedLlist<T> implements List<T>{
 		current.data=val; 
 		}
 <<<<<<< HEAD
-		public boolean exist(T E) {
-		if(empty())
+public boolean exist(T E) {
+	if(empty())
 		return false;
-		findFirst();
-		Contact e =((Contact)E);
-		while (current.next!=null)//cuurent.next!=null
-		{
+	findFirst();
+	Contact e =((Contact)E);
+	while (current!= null) {
 		Contact a =((Contact)current.data);
+	
 		if(a.getName().equals(e.getName()) || a.getPhoneNumber().equals(e.getPhoneNumber())) {
-		System.out.print("the contact is already exist " + a.toString() +"\n");
-		return true;
-		}
-		//findNext();
-		}
-		/*check the last elemnt
-		Contact a =((Contact)current.data);
+			System.out.print("the contact is already exist " + "\n");
+		 }
+		findNext();
+	}
+	//check the last elemnt
+	/*Contact a =((Contact)current.data);
 		if(a.getName().equals(e.getName()) || a.getPhoneNumber().equals(e.getPhoneNumber())) {
-		System.out.print("the contact is already exist " + a.toString() +"\n");
+			System.out.print("the contact is already exist " + e.toString() +"\n");
 		return true; }*/
-		return false; 
-		}
+		
+			return false;	
+	}
 		public void add(T Con) {
 		Node<T> con = new Node(Con); 
 		Contact CastCon = ((Contact)con.data);
